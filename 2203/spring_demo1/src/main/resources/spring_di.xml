@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1.让spring容器管理car 参数的个数 决定调用的构造方法 -->
+    <bean id="car" class="com.jt.demo5_di.Car">
+        <constructor-arg name="name" value="奔驰大G"/>
+        <constructor-arg name="color" value="绿色"/>
+        <!--<constructor-arg name="xxx" ref="需要引用的ID"/>-->
+    </bean>
+
+    <!--2.xml配置文件 为属性赋值-->
+    <bean id="person" class="com.jt.demo5_di.Person">
+        <property name="id" value="200"/>
+        <property name="name" value="元宵节"/>
+        <!--3.如果将对象赋值给属性,使用ref属性
+            name: "属性名称"
+            ref:引用的id-->
+        <property name="car" ref="car"/>
+    </bean>
+
+
+</beans>
