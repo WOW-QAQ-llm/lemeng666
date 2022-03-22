@@ -8,5 +8,7 @@ public class UserMapperImpl implements UserMapper{
     @Override
     public void addUser(User user) {
         System.out.println("完成用户的入库操作:"+user.getName());
+        System.out.println("完成用户的入库操作:"+user.getSex());
+        System.out.println("完成用户的入库操作:"+user.getId());
     }
 }
