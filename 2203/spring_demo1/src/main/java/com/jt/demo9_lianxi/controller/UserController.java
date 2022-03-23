@@ -14,7 +14,7 @@ public class UserController {
         User user = new User();
         user.setAge(11);
         user.setName("llm");
-        user.setSex("男");
+        user.setSex("男  ");
 
 
         userService.addUser(user);
