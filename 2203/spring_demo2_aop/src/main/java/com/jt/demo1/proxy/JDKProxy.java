@@ -5,12 +5,13 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class JDKProxy {
-    public static Object getProxy(Object target){
+    public static Object  getProxy(Object target){
         ClassLoader loader = target.getClass().getClassLoader();
         Class<?>[] interfaces = target.getClass().getInterfaces();
+        InvocationHandler h = getInvocationHandler(target);
         //创建代理对象
 
-        return Proxy.newProxyInstance(loader,interfaces,null);
+        return Proxy.newProxyInstance(loader,interfaces,h);
     }
 
     //获取InvocationHandler对象
