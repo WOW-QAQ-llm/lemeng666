@@ -10,4 +10,13 @@ public class UserServiceImpl implements UserService {
     public void addUser() {
         System.out.println("新增用户成功!!!");
     }
+
+    @Override
+    @TX
+    public String findName() {
+        System.out.println("春节愉快");
+        return "春节愉快";
+    }
+
+
 }

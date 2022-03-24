@@ -10,6 +10,7 @@ public class TestAspect {
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         UserService userService = context.getBean(UserService.class);
         System.out.println(userService.getClass());
-        userService.addUser();
+        //userService.addUser();
+        userService.findName();
     }
 }
