@@ -12,13 +12,13 @@ public class HelloController {
     public  String hello(){
         return "您好SpringMVC";
     }
-    @RequestMapping("/getUser")
-    @ResponseBody
-    public User getUser(){
-        User user = new User();
-        user.setId(101);
-        user.setName("你好");
-        return user;
-    }
+//    @RequestMapping("/getUser")
+//    @ResponseBody
+//    public User getUser(){
+//        User user = new User();
+//        user.setId(101);
+//        user.setName("你好");
+//        return user;
+//    }
 
 }
