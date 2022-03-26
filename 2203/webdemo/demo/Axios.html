@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>ajax入门案例</h1>
+		<script src="../js/axios.js"></script>
+		<script>
+			//3.Axios优化
+			axios.defaults.baseURL = "http://localhost:8080"
+		
+			//promise是Axios封装服务器返回值的对象
+			axios.get("/axios/findStr")
+				 .then(function(promise){
+					 console.log(promise)
+					 console.log(promise.data)
+					
+				 })
+			//2.带参数的业务调用  返回字符串+id!!!
+						let url2 = "http://localhost:8080/axios/getUserById?id=100";
+						axios.get(url2)
+							 .then(function(promise){
+								 console.log(promise.data)
+							 })	
+									//3.对象参数传递写法   利用API自动拼接参数
+									let user = {id: 100,name: "tomcat"}
+									axios.get("/axios/findUser",{params: user})
+										 .then(function(promise){
+											 console.log(promise.data)
+										 })
+	
+		</script>
+	</body>
+</html>
