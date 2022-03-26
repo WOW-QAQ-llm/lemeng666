@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>ajax入门案例</h1>
+		<script src="../js/axios.js"></script>
+		<script>
+			axios.defaults.baseURL = "http://localhost:8080"
+				/**
+						 * 1.定义一个函数
+						 * 规则: 
+						 * 		1. async 标识函数
+						 * 		2. await 标识请求
+						 * 		3. 2者必须同时出现
+						 * 		4. 可以直接获取then中的回调对象promise
+						 */
+						async function saveUser(){
+							let user = {id:100,name:"小猫"}
+							let {data:result,status:code}=await axios.post("/axios/saveUser",user)
+							console.log(result)
+						}
+						
+						/* 2.调用函数 */
+						saveUser()
+						async function saveUser1(){
+							let user = {id:100,name:"小猫"}
+							let promise=await axios.post("/axios/saveUser",user)
+							console.log(promise.data)
+						}
+						saveUser1()
+						let user2 = {id : 200,name:"111"}
+						axios.post("/axios/saveUser",user2)
+						.then(promise => {
+							console.log(promise.data)
+						})
+		</script>
+	</body>
+</html>
