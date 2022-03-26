@@ -1,10 +1,7 @@
 package com.jt.controller;
 
 import com.jt.pojo.User;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/axios")
@@ -26,6 +23,24 @@ public class AxiosController {
     }
     @GetMapping("/findUser")
     public User findUser(User user){
+        return user;
+    }
+    @GetMapping("/result/{id}/{name}/{age}")
+    public User restful(User user){
+        return user;
+    }
+    /**
+     * 编辑后端Controller
+     * URL: /axios/saveUser
+     * 参数: json串
+     *      {"id":100,"name":"tomcat猫","age":20}
+     * 返回值: User
+     * 难点:
+     *      1.将JSON串转化为Java对象  @RequestBody
+     *      2.将Java对象转化为JSON串! @ResponseBody
+     */
+    @PostMapping("/saveUser")
+    public User saveUser(@RequestBody User user){
         return user;
     }
 

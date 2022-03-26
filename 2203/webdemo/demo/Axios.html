@@ -30,6 +30,16 @@
 										 .then(function(promise){
 											 console.log(promise.data)
 										 })
+									let rest1 ={id: 100,name: "tomcat",age: 19}
+									 axios.get("/axios/result/"+rest1.id+"/"+rest1.name+"/"+rest1.age)
+									 .then(function(promise){
+										 console.log(promise.data)
+									 })
+									 let rest2 ={id: 100,name: "tomcat",age: 19}
+									 axios.get(`/axios/result/${rest2.id}/${rest2.name}/${rest2.age}`)
+									 .then(function(promise){
+										 console.log(promise.data)
+									 })
 	
 		</script>
 	</body>
