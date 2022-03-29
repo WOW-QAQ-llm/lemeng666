@@ -13,4 +13,13 @@ public interface UserMapper {
     //指定接口方法 查询demo_user的全部数据
     List<User> findAll();
 
+    void saveUser(User user);
+
+    int saveUser2(User user);
+
+    void updateUserById(User user);
+
+    void deleteUserById(User user);
+
+    List<User> findUserByMap(Map map);
 }

@@ -13,6 +13,33 @@
     <select id="findAll" resultType="com.jt.pojo.User">
         select * from demo_user
     </select>
+    <insert id="saveUser">
+        insert into demo_user(id,name,age,sex)
+                    value (null,#{name},#{age},#{sex})
+    </insert>
+    <insert id="saveUser2">
+        insert into demo_user(id,name,age,sex)
+            value (null,#{name},#{age},#{sex})
+    </insert>
+    <!--
+           关于取值操作的说明: #{属性值},${属性值}
+           1.#号取值采用占位符的方式  更加安全 防止sql注入攻击!!!
+           2.$符一般的使用场景 以字段为参数时使用.
+           3.使用#号时,默认会添加一对""号
+           4.能使用#号 绝不用$
+       -->
+    <update id="updateUserById">
+        update  demo_user set name = #{name} where id = ${id}
+    </update>
+    <delete id="deleteUserById">
+        delete from demo_user where id = #{id}
+    </delete>
+    <select id="findUserByMap" resultType="com.jt.pojo.User">
+        <!-- select * from demo_user where age>#{minAge} and age &lt; #{maxAge}  -->
+        <![CDATA[
+            select * from demo_user where age>#{minAge} and age < #{maxAge}
+        ]]>
+     </select>
 
 
-</mapper>
+ </mapper>

@@ -17,11 +17,5 @@ public class User implements Serializable {
     private Integer age;
     private String sex;
 
-    public void addUser(){
-        User user = new User();
-        user.setId(1000)
-                .setName("tomcat")
-                .setAge(18)
-                .setSex("男");
-    }
+
 }
