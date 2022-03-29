@@ -2,6 +2,7 @@ package com.jt;
 
 import com.jt.mapper.UserMapper;
 import com.jt.pojo.User;
+import com.zaxxer.hikari.util.FastList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -83,6 +84,13 @@ public class TestMybatis {
         List<User> list = userMapper.findUserByLike(name);
         System.out.println(list);
 
+    }
+    @Test
+    public void findUserByIn(){
+        Integer[] array = {1,3,4,5,6};
+        List<User> list = userMapper.findUserByIn(array);
+
+        System.out.println(list);
     }
 }
 
