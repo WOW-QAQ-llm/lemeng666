@@ -22,4 +22,6 @@ public interface UserMapper {
     void deleteUserById(User user);
 
     List<User> findUserByMap(Map map);
+
+    List<User> findUserByColumn(Map map);
 }

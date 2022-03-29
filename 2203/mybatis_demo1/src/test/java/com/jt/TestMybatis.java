@@ -58,5 +58,16 @@ public class TestMybatis {
 
         System.out.println(list);
     }
+    @Test
+    public void testFindByColumn(){
+        String column = "age";
+        int value = 18;
+        Map map = new HashMap();
+
+        map.put("column", column);
+        map.put("value", value);
+        List<User> list = userMapper.findUserByColumn(map);
+        System.out.println(list);
+    }
 }
 

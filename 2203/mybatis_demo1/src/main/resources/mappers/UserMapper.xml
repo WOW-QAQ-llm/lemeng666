@@ -40,6 +40,9 @@
             select * from demo_user where age>#{minAge} and age < #{maxAge}
         ]]>
      </select>
+    <select id="findUserByColumn" resultType="com.jt.pojo.User">
+        select * from demo_user where ${column} = #{value}
+    </select>
 
 
  </mapper>
