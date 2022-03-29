@@ -49,6 +49,9 @@
             select * from demo_user where id>#{minId} and id < #{maxId}
         ]]>
     </select>
+    <select id="findUserByLike" resultType="com.jt.pojo.User">
+        select * from demo_user where name like "%"#{name}"%"
+    </select>
 
 
  </mapper>

@@ -77,5 +77,12 @@ public class TestMybatis {
 
         System.out.println(list);
     }
+    @Test
+    public void findUserByLike(){
+        String name = "君";
+        List<User> list = userMapper.findUserByLike(name);
+        System.out.println(list);
+
+    }
 }
 
