@@ -24,4 +24,6 @@ public interface UserMapper {
     List<User> findUserByMap(Map map);
 
     List<User> findUserByColumn(Map map);
+
+    List<User> findUserByMId(@Param("minId") int minId,@Param("maxId") int maxId);
 }

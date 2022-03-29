@@ -69,5 +69,13 @@ public class TestMybatis {
         List<User> list = userMapper.findUserByColumn(map);
         System.out.println(list);
     }
+    @Test
+    public void testFindByParam(){
+        int minId = 10;
+        int maxId = 100;
+        List<User> list = userMapper.findUserByMId(minId,maxId);
+
+        System.out.println(list);
+    }
 }
 

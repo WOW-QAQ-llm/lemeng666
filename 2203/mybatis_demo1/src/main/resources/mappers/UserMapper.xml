@@ -43,6 +43,12 @@
     <select id="findUserByColumn" resultType="com.jt.pojo.User">
         select * from demo_user where ${column} = #{value}
     </select>
+    <select id="findUserByMId" resultType="com.jt.pojo.User">
+    <!-- select * from demo_user where age>#{minAge} and age &lt; #{maxAge}  -->
+    <![CDATA[
+            select * from demo_user where id>#{minId} and id < #{maxId}
+        ]]>
+    </select>
 
 
  </mapper>
