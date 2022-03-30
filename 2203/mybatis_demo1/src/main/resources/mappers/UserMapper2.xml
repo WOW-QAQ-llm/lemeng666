@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jt.mapper.UserMapper2">
+
+    <!--
+        Mybatis:动态sql语法 根据业务条件,动态拼接Sql
+        语法:
+              1. if标签: 如果判断为真 则拼接sql
+              2. where标签: 去除where后边多余1个and/or
+    -->
+    <select id="findUser" resultType="User">
+        select * from demo_user
+        <where>
+            <if test="id !=null">id = #{id}</if>
+            <if test="name !=null">and name = #{name}</if>
+            <if test="age !=null">and age = #{age}</if>
+            <if test="sex !=null">and sex = #{sex}</if>
+        </where>
+    </select>
+</mapper>
