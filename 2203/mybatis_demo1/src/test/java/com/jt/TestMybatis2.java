@@ -27,6 +27,13 @@ public class TestMybatis2 {
         userMapper.updateUser(user);
         System.out.println("修改成功");
     }
+    @Test
+    public void testfindUserChoose(){
+        User user = new User();
+        user.setAge(18).setSex("男");
+        List<User> list = userMapper.findUserChoose(user);
+        System.out.println(list);
+    }
 }
 
 

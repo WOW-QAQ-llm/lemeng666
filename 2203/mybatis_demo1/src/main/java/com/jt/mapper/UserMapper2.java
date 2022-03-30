@@ -10,4 +10,6 @@ public interface UserMapper2 {
     List<User> findUser(User user);
 
     void updateUser(User a);
+
+    List<User> findUserChoose(User user);
 }

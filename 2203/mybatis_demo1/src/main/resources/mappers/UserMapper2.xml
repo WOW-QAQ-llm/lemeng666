@@ -28,4 +28,12 @@
         </set>
             where id = #{id}
     </update>
+    <select id="findUserChoose" resultType="user">
+        select * from demo_user where
+        <choose>
+            <when test="name != null">name = #{name}</when>
+            <when test="age != age">age = #{age}</when>
+            <otherwise>sex = #{sex}</otherwise>
+        </choose>
+    </select>
 </mapper>
