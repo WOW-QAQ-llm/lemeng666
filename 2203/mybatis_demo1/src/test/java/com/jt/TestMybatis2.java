@@ -20,6 +20,13 @@ public class TestMybatis2 {
         List<User> list = userMapper.findUser(user);
         System.out.println(list);
     }
+    @Test
+    public void testUpdateUser(){
+        User user = new User();
+        user.setId(5).setName("llm").setAge(1000);
+        userMapper.updateUser(user);
+        System.out.println("修改成功");
+    }
 }
 
 

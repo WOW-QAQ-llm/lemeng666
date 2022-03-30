@@ -19,4 +19,13 @@
             <if test="sex !=null">and sex = #{sex}</if>
         </where>
     </select>
+    <update id="updateUser">
+        update demo_user
+        <set>
+            <if test="name!=null">name = #{name},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="sex!=null">sex = #{sex}</if>
+        </set>
+            where id = #{id}
+    </update>
 </mapper>
