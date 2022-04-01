@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring_demo2_aop" />
         <module name="mybatis_demo1" />
+        <module name="SSM" />
         <module name="spring_demo1" />
         <module name="springmvc_demo1" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="spring_demo1" target="1.8" />
       <module name="spring_demo2_aop" target="1.8" />
       <module name="springmvc_demo1" target="1.8" />
+      <module name="SSM" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

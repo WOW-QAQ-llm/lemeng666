@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--1.namespace是mybaits映射文件的唯一标识,与接口对应-->
+<mapper namespace="com.jt.mapper.UserMapper">
+    <!--2.执行业务操作
+        id: 与接口方法一一对应.
+        resultType: 返回的POJO对象类型全路径
+                    将结果集自动的封装为对象
+     -->
+    <select id="findAll" resultType="com.jt.pojo.User">
+        select * from demo_user
+    </select>
+    <insert id="saveUser">
+        insert into demo_user(id,name,age,sex)
+                    value (null,#{name},#{age},#{sex})
+    </insert>
+    <insert id="saveUser2">
+        insert into demo_user(id,name,age,sex)
+            value (null,#{name},#{age},#{sex})
+    </insert>
+    <!--
+           关于取值操作的说明: #{属性值},${属性值}
+           1.#号取值采用占位符的方式  更加安全 防止sql注入攻击!!!
+           2.$符一般的使用场景 以字段为参数时使用.
+           3.使用#号时,默认会添加一对""号
+           4.能使用#号 绝不用$
+       -->
+    <update id="updateUserById">
+        update  demo_user set name = #{name} where id = ${id}
+    </update>
+    <delete id="deleteUserById">
+        delete from demo_user where id = #{id}
+    </delete>
+    <select id="findUserByMap" resultType="com.jt.pojo.User">
+        <!-- select * from demo_user where age>#{minAge} and age &lt; #{maxAge}  -->
+        <![CDATA[
+            select * from demo_user where age>#{minAge} and age < #{maxAge}
+        ]]>
+     </select>
+    <select id="findUserByColumn" resultType="com.jt.pojo.User">
+        select * from demo_user where ${column} = #{value}
+    </select>
+    <select id="findUserByMId" resultType="com.jt.pojo.User">
+    <!-- select * from demo_user where age>#{minAge} and age &lt; #{maxAge}  -->
+    <![CDATA[
+            select * from demo_user where id>#{minId} and id < #{maxId}
+        ]]>
+    </select>
+    <select id="findUserByLike" resultType="com.jt.pojo.User">
+      <include refid="selectDemoUser"/> where name like "%"#{name}"%"
+    </select>
+    <sql id="selectDemoUser">
+        select id,name,age,sex from demo_user
+    </sql>
+    <select id="findUserByIn" resultType="User">
+        <include refid="selectDemoUser"/>where id in
+            <foreach collection="array" open="(" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+    </select>
+
+
+ </mapper>
