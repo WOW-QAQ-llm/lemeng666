@@ -10,4 +10,5 @@ import java.util.Map;
 //@Mapper //将接口交给Spring容器管理 Map<userMapper,JDK代理对象>
 public interface UserMapper {
 
+    List<User> findAll();
 }
