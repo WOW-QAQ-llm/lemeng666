@@ -12,8 +12,15 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserMapper userMapper;
 
+
     @Override
     public List<User> findAll() {
         return userMapper.findAll();
     }
+
+    @Override
+    public void deleteUserById(Integer id) {
+         userMapper.deleteUserById(id);
+    }
+
 }

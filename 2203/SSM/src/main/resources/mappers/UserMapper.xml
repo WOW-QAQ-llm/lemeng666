@@ -8,6 +8,8 @@
    <select id="findAll" resultType="User">
        select * from demo_user
    </select>
-
+    <delete id="deleteUserById">
+        delete from demo_user where id=#{id}
+    </delete>
 
  </mapper>
