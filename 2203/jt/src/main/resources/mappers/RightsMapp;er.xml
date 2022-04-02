@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jt.mapper.RightsMapper">
+
+    <select id="getRightsList" resultMap="rightsRM">
+        select p.*,c.id c_id,c.name c_name,
+               c.parent_id c_parent_id, c.path c_path,
+               c.level c_level,c.created c_created,
+               c.updated c_updated
+        from rights p,rights c
+        where p.id = c.parent_id
+          and p.level=1
+    </select>
+
+    <resultMap id="rightsRM" type="Rights" autoMapping="true">
+        <id column="id" property="id"/>
+        <!--如果字段和对象的属性名称一致-->
+        <collection property="children" ofType="Rights" autoMapping="true"
+                    columnPrefix="c_">
+            <id column="c_id" property="id"/>
+            <!--说明:属性如果指定了前缀,则剩余的名称可以自动映射 -->
+            <!--<result column="c_name" property="name"/>-->
+        </collection>
+    </resultMap>
+</mapper>
