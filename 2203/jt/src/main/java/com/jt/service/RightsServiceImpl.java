@@ -21,15 +21,17 @@ public class RightsServiceImpl implements RightsService{
      */
     @Override
     public List<Rights> getRightsList() {
-        //1.查询一级菜单数据 level=1|parent_id=0
-        int parentId = 0;
-        List<Rights> oneList = rightsMapper.findByParentId(parentId);
-        //2.如何查询每一个一级下的二级?
-        for (Rights oneRights : oneList){
-            int oneId = oneRights.getId();
-            List<Rights> twoList = rightsMapper.findByParentId(oneId);
-            oneRights.setChildren(twoList);
-        }
-        return oneList;
+
+        return rightsMapper.getRightsList();
+//        //1.查询一级菜单数据 level=1|parent_id=0
+//        int parentId = 0;
+//        List<Rights> oneList = rightsMapper.findByParentId(parentId);
+//        //2.如何查询每一个一级下的二级?
+//        for (Rights oneRights : oneList){
+//            int oneId = oneRights.getId();
+//            List<Rights> twoList = rightsMapper.findByParentId(oneId);
+//            oneRights.setChildren(twoList);
+//        }
+//        return oneList;
     }
 }
