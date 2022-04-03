@@ -3,6 +3,7 @@ package com.jt.service;
 import com.jt.mapper.UserMapper;
 import com.jt.pojo.User;
 import com.jt.vo.PageResult;
+import com.jt.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,5 +42,24 @@ public class UserServiceImpl implements UserService{
         String token = UUID.randomUUID().toString();
         return token;
     }
+
+    @Override
+    public PageResult findUserList(PageResult pageResult) {
+        int size = pageResult.getPageSize();
+        int startNum = (pageResult.getPageNum() - 1) * size;
+        String query = pageResult.getQuery();
+        //查询分页的结果
+        List<User> userList =
+                userMapper.findUserList(query,size,startNum);
+        //查询总记录数
+        long total = userMapper.findCount(query);
+
+        //将分页数据,进行封装
+        pageResult.setTotal(total).setRows(userList);
+        return pageResult;
     }
+
+
+
+}
 

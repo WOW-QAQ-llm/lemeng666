@@ -8,4 +8,12 @@
     <select id="findAll" resultType="User">
         select * from user
     </select>
+    <select id="findUserList" resultType="User">
+        select * from user where username like "%"#{query}"%"
+        limit #{startNum},#{size}
+    </select>
+
+    <select id="findCount" resultType="long">
+        select count(1) from user where username like "%"#{query}"%"
+    </select>
 </mapper>

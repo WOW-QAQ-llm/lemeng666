@@ -39,5 +39,13 @@ public class UserController {
         }
         return SysResult.success(token);
     }
+    @GetMapping("/list")
+    public SysResult findUserList(PageResult pageResult){//3个有值
+        //业务层完成 查询总数和记录数的操作
+        pageResult = userService.findUserList(pageResult);
+
+        return SysResult.success(pageResult);
+    }
+
 
 }
