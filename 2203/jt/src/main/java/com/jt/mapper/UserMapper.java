@@ -22,4 +22,6 @@ public interface UserMapper {
     void updateStatus(User user);
 
     void addUser(User user);
+
+    User findUserById(Integer id);
 }

@@ -84,8 +84,11 @@ public class UserServiceImpl implements UserService{
                 .setCreated(date)
                 .setUpdated(date);
         userMapper.addUser(user);
+    }
 
-
+    @Override
+    public User findUserById(Integer id) {
+        return userMapper.findUserById(id);
     }
 
 

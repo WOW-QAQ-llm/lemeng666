@@ -61,6 +61,15 @@ public class UserController {
         userService.addUser(user);
         return SysResult.success();
     }
-
+    /**
+     * URL: /user/{id}
+     * 参数: id
+     * 返回值: SysResult(user对象)
+     */
+    @GetMapping("/{id}")
+    public SysResult findUserById(@PathVariable Integer id){
+        User user = userService.findUserById(id);
+        return SysResult.success(user);
+    }
 
 }

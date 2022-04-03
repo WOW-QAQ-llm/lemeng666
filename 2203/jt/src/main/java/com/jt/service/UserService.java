@@ -20,4 +20,7 @@ public interface UserService {
     void status(User user);
 
     void addUser(User user);
+
+
+    User findUserById(Integer id);
 }
