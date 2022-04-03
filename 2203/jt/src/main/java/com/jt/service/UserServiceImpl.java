@@ -96,6 +96,13 @@ public class UserServiceImpl implements UserService{
         return userMapper.deleteUserById(id);
     }
 
+    @Override
+    public void updateUser(User user) {
+        Date date  = new Date();
+        user.setUpdated(date);
+        userMapper.updateUser(user);
+    }
+
 
 }
 

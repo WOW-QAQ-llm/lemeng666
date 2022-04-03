@@ -82,6 +82,17 @@ public class UserController {
         User user = userService.deleteUserById(id);
         return SysResult.success(user);
     }
+    /**
+     * 请求路径: /user/updateUser
+     * 请求类型: PUT
+     * 请求参数: User对象结构
+     * 返回值: SysResult对象
+     */
+    @PutMapping("/updateUser")
+    public SysResult updateUser(@RequestBody User user){
+        userService.updateUser(user);
+        return SysResult.success();
+    }
 
 
 }
