@@ -91,6 +91,11 @@ public class UserServiceImpl implements UserService{
         return userMapper.findUserById(id);
     }
 
+    @Override
+    public User deleteUserById(Integer id) {
+        return userMapper.deleteUserById(id);
+    }
+
 
 }
 
