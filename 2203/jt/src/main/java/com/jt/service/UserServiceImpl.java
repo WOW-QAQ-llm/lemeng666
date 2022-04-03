@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
+import sun.security.util.Password;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService{
+
 
     @Autowired
     private UserMapper userMapper;
@@ -59,6 +61,32 @@ public class UserServiceImpl implements UserService{
         return pageResult;
     }
 
+    @Override
+    public void status(User user) {
+        user.setUpdated(new Date());
+        userMapper.updateStatus(user);
+    }
+    /**
+     * 业务思维:
+     *      1.密码需要md5加密
+     *      2.设定状态信息 true
+     *      3.设定创建时间/修改时间
+     *      4.注意事务控制
+     * @param user
+     */
+    @Override
+    public void addUser(User user) {
+        Date date = new Date();
+        String password = user.getPassword();
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+        user.setPassword(password)
+                .setStatus(true)
+                .setCreated(date)
+                .setUpdated(date);
+        userMapper.addUser(user);
+
+
+    }
 
 
 }

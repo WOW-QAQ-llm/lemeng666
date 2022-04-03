@@ -46,6 +46,21 @@ public class UserController {
 
         return SysResult.success(pageResult);
     }
+    @PutMapping("/status/{id}/{status}")
+    public SysResult findStatus(User user){
+         userService.status(user);
+        return  SysResult.success();
+    }
+    /**
+     * URL:  /user/addUser
+     * 参数:  form表单 js对象 json串
+     * 返回值: SysResult对象
+     */
+    @PostMapping("/addUser")
+    public SysResult addUser(@RequestBody User user){
+        userService.addUser(user);
+        return SysResult.success();
+    }
 
 
 }

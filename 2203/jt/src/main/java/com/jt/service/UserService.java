@@ -15,4 +15,9 @@ public interface UserService {
 
 
     PageResult findUserList(PageResult pageResult);
+
+
+    void status(User user);
+
+    void addUser(User user);
 }

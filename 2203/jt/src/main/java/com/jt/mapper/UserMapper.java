@@ -2,6 +2,7 @@ package com.jt.mapper;
 import com.jt.pojo.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 public interface UserMapper {
@@ -16,4 +17,9 @@ public interface UserMapper {
                             @Param("startNum") int startNum);
 
     long findCount(String query);
+
+    @Update("update user set status =#{status},updated = #{updated} where id = #{id}" )
+    void updateStatus(User user);
+
+    void addUser(User user);
 }

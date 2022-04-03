@@ -16,4 +16,8 @@
     <select id="findCount" resultType="long">
         select count(1) from user where username like "%"#{query}"%"
     </select>
+    <insert id="addUser">
+        insert into user value (null,#{username},#{password},#{phone},
+            #{email},#{status},#{created},#{updated})
+    </insert>
 </mapper>
